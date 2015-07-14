@@ -589,3 +589,12 @@ body {
   line-height: 1.4;
   color: #454545;
 }
+
+section#contact {
+	background: #232323;
+	color: white;
+}
+
+section#Proyects {
+	background: #F3F1EE;
+}
