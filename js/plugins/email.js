@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('contact-form').addEventListener('submit', function(event) {
+    alert('Entro por primera vez');
     event.preventDefault(); // Prevent form submission
   
     const name = document.getElementById('name').value;
