@@ -37,7 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
       loader.style.display = "none"; // Hide the loader
       alert('You must consent to the processing of your data');
     }
+
+    return false; // Explicitly stop default behavior for older browsers
   });
 });
+
   
 
