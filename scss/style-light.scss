@@ -1,0 +1,56 @@
+/* -------------------------------------------
+
+Name: 		Wasker (light mode)
+Version:    1.0
+Developer:	Nazar Miller (millerDigitalDesign)
+Portfolio:  https://themeforest.net/user/millerdigitaldesign/portfolio?ref=MillerDigitalDesign
+
+p.s. I am available for Freelance hire (UI design, web development). email: miller.themes@gmail.com
+
+------------------------------------------- */
+
+/*--------------------------------------------
+
+1. common
+    - main
+    - flex
+    - typography
+    - buttons
+    - form
+    - masonry grid
+    - page transitions
+    - spaces
+2. components
+    - frame
+    - social icons
+    - main menu
+    - menu button
+    - portfolio
+    - banner
+    - services
+    - skills
+    - reviews
+    - timeline
+    - price
+    - blog
+    - 404
+3. custom
+    - fancybox
+4. light fix
+    - buttons
+    - form
+    - typography
+    - frame
+    - menu
+    - banner
+    - portfolio
+    - blog
+    - fancybox (custom)
+
+--------------------------------------------*/
+
+@import 'variables-light';
+@import 'common';
+@import 'custom';
+@import 'components';
+@import 'light-fix';

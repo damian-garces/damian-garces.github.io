@@ -1,0 +1,142 @@
+/* -------------------------------------------
+
+fancybox
+
+------------------------------------------- */
+
+.fancybox__container {
+    box-shadow: 0 0 0 2.5rem $bc-1;
+    overflow: hidden;
+    width: calc(100% - 3rem);
+    height: calc(100% - 3rem);
+    left: 1.5rem;
+    top: 1.5rem;
+    border-radius: .9rem;
+
+    & .fancybox__backdrop {
+        border-radius: .9rem;
+        width: calc(100% - 3rem);
+        height: calc(100% - 3rem);
+        left: 1.5rem;
+        top: 1.5rem;
+        background-color: rgba($bc-1, .85);
+        backdrop-filter: blur(1.5rem);
+    }
+
+    & .fancybox__content {
+        & img {
+            border-radius: 1rem;
+        }
+    }
+
+    & .fancybox__toolbar {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & * {
+            text-shadow: none !important;
+        }
+
+        & .fancybox__toolbar__column {
+            padding: 1.5rem 2rem;
+
+            & .fancybox__infobar {
+                padding: 0;
+                line-height: 100%;
+                font-size: 1.1rem;
+                font-weight: 600;
+                letter-spacing: .15rem;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            & button {
+                overflow: hidden;
+                border-radius: 50%;
+                width: 3.2rem;
+                height: 3.2rem;
+                margin-left: 1rem;
+                background-color: rgba($tc-1, .1);
+                transition: $tsm;
+
+                & .f-progress {
+                    background-color: $ac-1;
+                    opacity: 1;
+                    z-index: 0;
+                }
+
+                & svg {
+                    width: 1.7rem;
+                    opacity: .8;
+                    text-shadow: none;
+                }
+
+                &:hover {
+                    background-color: rgba($tc-1, .2);
+
+                    & svg {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    & .fancybox__nav {
+        padding: 60px;
+
+        & button.f-button {
+            margin: 1rem 1rem 2rem;
+            overflow: hidden;
+            border-radius: 50%;
+            width: 3.2rem;
+            height: 3.2rem;
+            margin-left: 1rem;
+            background-color: rgba($tc-1, .1);
+            transition: $tsm;
+
+            & svg {
+                width: 1.7rem;
+                opacity: .8;
+                color: $tc-1;
+            }
+
+            &:hover {
+                background-color: rgba($tc-1, .2);
+
+                & svg {
+                    opacity: 1;
+                    color: $tc-1 !important;
+
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 0;
+
+        & .fancybox__backdrop {
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        & .fancybox__slide {
+            padding: 0 1.5rem;
+        }
+    }
+}
+
+.fancybox__content img {
+    max-height: 70vh;
+
+}

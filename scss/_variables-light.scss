@@ -1,0 +1,46 @@
+/* -------------------------------------------
+
+fonts
+
+------------------------------------------- */
+@font-face {
+    font-family: 'clesmont';
+    src: url('../fonts/clesmont-clesmont-regular-400.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-1: 'clesmont',
+sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+$font-2: "Outfit",
+sans-serif;
+
+/* -------------------------------------------
+
+colors
+
+------------------------------------------- */
+
+$bc-1: #000;
+$bc-2: #E9F1F4;
+$bc-3: #D0E1E5;
+$bc-4: #C5D6DB;
+
+$tc-1: #474747;
+$tc-2: #798080;
+
+$ac-1: #E03C41;
+$ac-2: #E03C41;
+/* -------------------------------------------
+
+trasition
+
+------------------------------------------- */
+
+$tsm: .2s cubic-bezier(0, 0, 0.3642, 1);
+$tmd: .4s cubic-bezier(0, 0, 0.3642, 1);
+$tlg: .6s cubic-bezier(0, 0, 0.3642, 1);
+$txl: .8s cubic-bezier(0, 0, 0.3642, 1);
