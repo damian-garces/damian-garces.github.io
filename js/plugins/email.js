@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
           loader.style.display = "none";
         });
     } else {
+      loader.style.display = "none"; // Hide the loader
       alert('You must consent to the processing of your data');
     }
   });
