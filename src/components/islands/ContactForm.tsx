@@ -1,5 +1,9 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { submitContactForm, isValidEmail, type ContactPayload } from "../../lib/contact";
+import { loadHCaptcha, HCAPTCHA_SITE_KEY } from "../../lib/hcaptcha";
+
+/** How long the "Message sent." confirmation stays up before the form reappears, ready for another message. */
+const SUCCESS_RESET_DELAY_MS = 8000;
 
 interface ContactFormLabels {
   nameLabel: string;
@@ -12,6 +16,7 @@ interface ContactFormLabels {
   successTitle: string;
   successSubtitle: string;
   errorEmail: string;
+  errorCaptcha: string;
   errorGeneric: string;
 }
 
@@ -44,8 +49,27 @@ const labelStyle: React.CSSProperties = {
 
 export default function ContactForm({ labels, accessKey }: ContactFormProps) {
   const [form, setForm] = useState<ContactPayload>({ name: "", email: "", subject: "", message: "" });
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [emailError, setEmailError] = useState(false);
+  const [captchaError, setCaptchaError] = useState(false);
+
+  const captchaContainerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | undefined>(undefined);
+
+  // Render the hCaptcha widget once the script is ready. Runs client-side
+  // only (this whole component is a client:visible island), so no SSR guard
+  // is needed for `window`/`document` here.
+  useEffect(() => {
+    let cancelled = false;
+    loadHCaptcha().then((hcaptcha) => {
+      if (cancelled || !captchaContainerRef.current || widgetIdRef.current !== undefined) return;
+      widgetIdRef.current = hcaptcha.render(captchaContainerRef.current, { sitekey: HCAPTCHA_SITE_KEY, theme: "dark" });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const setField = (key: keyof ContactPayload) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [key]: e.target.value }));
@@ -60,10 +84,30 @@ export default function ContactForm({ labels, accessKey }: ContactFormProps) {
       return;
     }
 
+    const captchaToken = window.hcaptcha?.getResponse(widgetIdRef.current) ?? "";
+    if (captchaToken === "") {
+      setCaptchaError(true);
+      return;
+    }
+    setCaptchaError(false);
+
     setStatus("submitting");
-    const result = await submitContactForm(accessKey, form);
+    const result = await submitContactForm(accessKey, form, honeypot, captchaToken);
+    window.hcaptcha?.reset(widgetIdRef.current);
     setStatus(result.ok ? "success" : "error");
   };
+
+  // After a successful send, clear the form and bring it back so a visitor
+  // can see the confirmation, then send another message without reloading.
+  useEffect(() => {
+    if (status !== "success") return;
+    const timer = setTimeout(() => {
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setHoneypot("");
+      setStatus("idle");
+    }, SUCCESS_RESET_DELAY_MS);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   if (status === "success") {
     return (
@@ -100,6 +144,17 @@ export default function ContactForm({ labels, accessKey }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }} noValidate>
+      {/* Honeypot: invisible to real visitors, only a bot filling every field blindly would fill this. */}
+      <input
+        type="text"
+        name="botcheck"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
         <label style={{ flex: "1 1 180px", display: "flex", flexDirection: "column", gap: 8 }}>
           <span style={labelStyle}>{labels.nameLabel}</span>
@@ -138,6 +193,12 @@ export default function ContactForm({ labels, accessKey }: ContactFormProps) {
           style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }}
         />
       </label>
+      <div ref={captchaContainerRef} />
+      {captchaError && (
+        <p role="alert" style={{ margin: 0, color: "#E5484D", fontSize: 13 }}>
+          {labels.errorCaptcha}
+        </p>
+      )}
       {status === "error" && (
         <p role="alert" style={{ margin: 0, color: "#E5484D", fontSize: 13 }}>
           {labels.errorGeneric}

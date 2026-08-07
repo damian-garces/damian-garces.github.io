@@ -21,6 +21,7 @@ export const ui = {
     "footer.rights": "All rights reserved",
     "footer.backTop": "Back to top",
     "contact.errorEmail": "Please enter a valid email address.",
+    "contact.errorCaptcha": "Please complete the captcha before sending.",
     "contact.errorGeneric": "Something went wrong. Please try again or email me directly.",
   },
   es: {
@@ -31,6 +32,7 @@ export const ui = {
     "footer.rights": "Todos los derechos reservados",
     "footer.backTop": "Volver arriba",
     "contact.errorEmail": "Por favor ingresa un correo electrónico válido.",
+    "contact.errorCaptcha": "Por favor completa el captcha antes de enviar.",
     "contact.errorGeneric": "Algo salió mal. Intenta de nuevo o escríbeme directamente.",
   },
 } as const satisfies Record<Locale, Record<string, string>>;
