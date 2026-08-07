@@ -1,7 +1,7 @@
 {
   "heading": {
     "eyebrow": "Experience",
-    "title": "14 years, shipped.",
+    "title": "{{years}} years, shipped.",
     "note": "// 4 companies"
   },
   "items": [

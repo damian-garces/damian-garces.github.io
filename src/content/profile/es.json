@@ -6,7 +6,7 @@
   "cvUrl": "/files/CV.pdf",
   "heroMeta": [
     { "key": "Ubicación", "value": "Chía, Colombia" },
-    { "key": "Experiencia", "value": "14+ años" },
+    { "key": "Experiencia", "value": "{{years}}+ años" },
     { "key": "Enfoque", "value": "C# · .NET · Azure" },
     { "key": "Estado", "value": "Disponible" }
   ],
@@ -17,12 +17,12 @@
       "note": "// desde 2010"
     },
     "bio": [
-      "Soy Damián Garcés — Desarrollador Senior Backend & Full Stack con más de 14 años construyendo sistemas escalables, seguros y de alto rendimiento para los sectores de telecomunicaciones y finanzas.",
+      "Soy Damián Garcés — Desarrollador Senior Backend & Full Stack con más de {{years}} años construyendo sistemas escalables, seguros y de alto rendimiento para los sectores de telecomunicaciones y finanzas.",
       "Mi núcleo es C#, .NET, Azure, microservicios y arquitectura limpia, con alcance full-stack en React y Vue. He entregado plataformas que mejoraron la eficiencia de los sistemas en un 70% y redujeron los costos operativos en un 40%.",
       "Como líder técnico formo ingenieros e impulso decisiones de arquitectura que alinean la tecnología con los objetivos del negocio. Actualmente en Chía, Colombia y abierto a proyectos ambiciosos."
     ],
     "stats": [
-      { "value": "14+", "label": "Años de experiencia" },
+      { "value": "{{years}}+", "label": "Años de experiencia" },
       { "value": "70%", "label": "Eficiencia ganada" },
       { "value": "40%", "label": "Costos reducidos" },
       { "value": "Chía", "label": "Ubicación actual" }
