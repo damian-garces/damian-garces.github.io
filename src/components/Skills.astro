@@ -1,0 +1,217 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface SkillTag {
+  name: string;
+  primary: boolean;
+}
+interface SkillCategory {
+  n: string;
+  name: string;
+  tags: SkillTag[];
+}
+interface Heading {
+  eyebrow: string;
+  title: string;
+  note: string;
+}
+interface LanguageItem {
+  name: string;
+  level: string;
+  proficiency: number;
+}
+
+interface Props {
+  n: string;
+  heading: Heading;
+  categories: SkillCategory[];
+  softTitle: string;
+  softItems: string[];
+  languages: LanguageItem[];
+}
+
+const { n, heading, categories, softTitle, softItems, languages } = Astro.props;
+---
+
+<Section id="skills">
+  <SectionHeading n={n} eyebrow={heading.eyebrow} title={heading.title} note={heading.note} />
+
+  <div class="categories">
+    {
+      categories.map((cat) => (
+        <div class="category-card" data-reveal="1">
+          <div class="category-head">
+            <span class="mono index">{cat.n}</span>
+            <h3>{cat.name}</h3>
+          </div>
+          <div class="tags">
+            {cat.tags.map((tag) =>
+              tag.primary ? (
+                <span class="tag tag-primary">
+                  <span class="dot" />
+                  {tag.name}
+                </span>
+              ) : (
+                <span class="tag tag-normal">{tag.name}</span>
+              ),
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="secondary-grid">
+    <div class="soft-card" data-reveal="1">
+      <div class="category-head">
+        <span class="mono index">+</span>
+        <h3>{softTitle}</h3>
+      </div>
+      <div class="tags">
+        {softItems.map((item) => <span class="chip">{item}</span>)}
+      </div>
+    </div>
+
+    <div class="lang-col" data-reveal="1" data-delay="80">
+      {
+        languages.map((lang) => (
+          <div class="lang-card">
+            <div>
+              <div class="lang-name">{lang.name}</div>
+              <div class="lang-level mono">{lang.level}</div>
+            </div>
+            <div class="ticks">
+              {Array.from({ length: 5 }, (_, i) => (
+                <span class={`tick ${i < lang.proficiency ? "is-filled" : ""}`} />
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>
+
+<style>
+  .categories,
+  .secondary-grid {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .secondary-grid {
+    margin-top: 18px;
+  }
+  .category-card,
+  .soft-card {
+    flex: 1 1 300px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .soft-card {
+    flex: 1 1 440px;
+  }
+  .category-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .mono {
+    font-family: var(--font-mono);
+  }
+  .index {
+    font-size: 11px;
+    color: var(--accent-text);
+  }
+  h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+  }
+  .tag-primary {
+    border: 1px solid var(--accent);
+    background: color-mix(in oklab, var(--accent) 14%, transparent);
+    color: var(--accent-text);
+  }
+  .tag-primary .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .tag-normal {
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--dim);
+  }
+  .chip {
+    display: inline-flex;
+    padding: 8px 13px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--dim);
+    font-size: 13px;
+  }
+  .lang-col {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .lang-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .lang-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .lang-level {
+    font-size: 11.5px;
+    color: var(--faint);
+    margin-top: 5px;
+    letter-spacing: 0.04em;
+  }
+  .ticks {
+    display: flex;
+    gap: 5px;
+  }
+  .tick {
+    width: 7px;
+    height: 18px;
+    border-radius: 3px;
+    background: var(--border-strong);
+  }
+  .tick.is-filled {
+    background: var(--accent);
+  }
+</style>

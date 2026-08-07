@@ -1,0 +1,23 @@
+{
+  "heading": {
+    "eyebrow": "Servicios",
+    "title": "Lo que puedo construir.",
+    "note": "// 02 servicios"
+  },
+  "items": [
+    {
+      "n": "01",
+      "icon": "{ }",
+      "title": "Ingeniería Backend",
+      "description": "Soluciones backend robustas, escalables y seguras — arquitecturas eficientes, APIs bien diseñadas e integraciones de sistemas fluidas para aplicaciones complejas y de alta carga.",
+      "cta": "Solicitar servicio"
+    },
+    {
+      "n": "02",
+      "icon": "</>",
+      "title": "Desarrollo Full Stack",
+      "description": "Interfaces responsivas y de alto rendimiento en React y Vue, conectadas de extremo a extremo con servicios .NET — experiencias de calidad que se adaptan a cada proyecto.",
+      "cta": "Solicitar servicio"
+    }
+  ]
+}

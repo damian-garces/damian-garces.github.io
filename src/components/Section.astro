@@ -1,0 +1,19 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="section">
+  <slot />
+</section>
+
+<style>
+  .section {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: clamp(72px, 11vw, 140px) clamp(18px, 5vw, 48px) 0;
+  }
+</style>

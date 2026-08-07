@@ -1,0 +1,131 @@
+---
+import { Image } from "astro:assets";
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import avatar from "../assets/avatar.jpg";
+
+interface Heading {
+  eyebrow: string;
+  title: string;
+  note: string;
+}
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  n: string;
+  heading: Heading;
+  bio: string[];
+  stats: StatItem[];
+  name: string;
+}
+
+const { n, heading, bio, stats, name } = Astro.props;
+---
+
+<Section id="about">
+  <SectionHeading n={n} eyebrow={heading.eyebrow} title={heading.title} note={heading.note} />
+  <div class="about-grid">
+    <div class="bio-card" data-reveal="1" data-glow="1">
+      <div data-glow-layer="1"></div>
+      <div class="bio-text">
+        {bio.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+    <div class="side-col" data-reveal="1" data-delay="80">
+      <div class="portrait">
+        <Image src={avatar} alt={name} width={480} height={480} loading="eager" />
+      </div>
+      <div class="stats-row">
+        {
+          stats.map((s) => (
+            <div class="stat-card">
+              <div class="stat-value">{s.value}</div>
+              <div class="stat-label">{s.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .about-grid {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .bio-card {
+    flex: 1 1 460px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: clamp(24px, 3vw, 40px);
+    position: relative;
+    overflow: hidden;
+  }
+  .bio-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .bio-text p {
+    margin: 0;
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.72;
+    color: var(--dim);
+    text-wrap: pretty;
+  }
+  .side-col {
+    flex: 1 1 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 240px;
+  }
+  .portrait {
+    flex: 1;
+    min-height: 160px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .portrait :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+  }
+  .stats-row {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    flex: 1 1 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .stat-value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(24px, 2.6vw, 32px);
+    color: var(--accent-text);
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-top: 6px;
+  }
+</style>

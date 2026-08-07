@@ -1,0 +1,53 @@
+{
+  "heading": {
+    "eyebrow": "Experience",
+    "title": "{{years}} years, shipped.",
+    "note": "// 4 companies"
+  },
+  "items": [
+    {
+      "n": "01",
+      "company": "Identidad Technologies",
+      "period": "2017 — Present",
+      "role": "Senior Developer · Team Lead",
+      "bullets": [
+        "Technical lead guiding best practices for code quality and maintainability.",
+        "Drive architecture and design decisions for new solutions aligned to business goals.",
+        "Mentor engineers, run code reviews and champion modern frameworks."
+      ]
+    },
+    {
+      "n": "02",
+      "company": "Periferia IT",
+      "period": "2014 — 2017",
+      "role": "Senior Developer Analyst",
+      "bullets": [
+        "Built and maintained enterprise applications across industries.",
+        "Led full-stack .NET development for web-based solutions.",
+        "Delivered CreditoWeb for Banco Falabella — efficient credit-card management."
+      ]
+    },
+    {
+      "n": "03",
+      "company": "Everis Colombia",
+      "period": "2011 — 2014",
+      "role": "Senior Developer Analyst",
+      "bullets": [
+        "Analyzed and designed technical and functional modules.",
+        "Owned unit testing, documentation and effort estimation.",
+        "Ensured CMMI Level 3 compliance across the team."
+      ]
+    },
+    {
+      "n": "04",
+      "company": "ASO Ltda",
+      "period": "2010 — 2011",
+      "role": "Junior Developer Analyst",
+      "bullets": [
+        "Designed databases for a referential-document indexing system.",
+        "Wrote SQL Server scripts automating flat-file purchase orders.",
+        "Built C# tooling to replicate products across databases."
+      ]
+    }
+  ]
+}

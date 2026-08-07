@@ -1,0 +1,52 @@
+---
+interface Props {
+  n: string;
+  eyebrow: string;
+  title: string;
+  note: string;
+}
+
+const { n, eyebrow, title, note } = Astro.props;
+---
+
+<div class="section-heading" data-reveal="1">
+  <div>
+    <div class="eyebrow">/ {n} — {eyebrow}</div>
+    <h2 class="title">{title}</h2>
+  </div>
+  <span class="note">{note}</span>
+</div>
+
+<style>
+  .section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: clamp(32px, 4vw, 52px);
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin-bottom: 14px;
+  }
+  .title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(30px, 4.6vw, 56px);
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+  }
+  .note {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--faint);
+  }
+</style>

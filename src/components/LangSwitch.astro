@@ -1,0 +1,59 @@
+---
+/**
+ * Static language switcher: two plain links to the alternate-locale URL of
+ * the current page. Deliberately not a React island — swapping locale is a
+ * navigation, not client state, so it needs no client JS at all.
+ */
+import { locales, localeLabels, type Locale } from "../i18n/ui";
+import { getAlternatePath } from "../i18n/utils";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<div class="lang-switch">
+  {
+    locales.map((loc) => (
+      <a
+        href={getAlternatePath(currentPath, loc)}
+        class={loc === locale ? "is-active" : ""}
+        aria-current={loc === locale ? "true" : undefined}
+      >
+        {localeLabels[loc]}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 8px 11px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .lang-switch a {
+    text-decoration: none;
+    color: var(--faint);
+    font-weight: 400;
+  }
+  .lang-switch a + a::before {
+    content: "/";
+    color: var(--faint);
+    margin-right: 6px;
+  }
+  .lang-switch a.is-active {
+    color: var(--accent-text);
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,8 @@
+---
+import PortfolioPage from "../components/PortfolioPage.astro";
+import { loadPageData } from "../lib/page";
+
+const data = await loadPageData("en");
+---
+
+<PortfolioPage locale="en" data={data} />

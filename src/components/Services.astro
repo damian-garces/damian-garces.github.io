@@ -1,0 +1,116 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface ServiceItem {
+  n: string;
+  icon: string;
+  title: string;
+  description: string;
+  cta: string;
+}
+interface Heading {
+  eyebrow: string;
+  title: string;
+  note: string;
+}
+
+interface Props {
+  n: string;
+  heading: Heading;
+  items: ServiceItem[];
+}
+
+const { n, heading, items } = Astro.props;
+---
+
+<Section id="services">
+  <SectionHeading n={n} eyebrow={heading.eyebrow} title={heading.title} note={heading.note} />
+  <div class="grid">
+    {
+      items.map((item) => (
+        <div class="card" data-reveal="1" data-glow="1">
+          <div data-glow-layer="1" />
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="index mono">{item.n}</span>
+              <span class="icon mono">{item.icon}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a href="#contact" class="cta mono">
+              {item.cta} <span>→</span>
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .card {
+    flex: 1 1 380px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: clamp(24px, 3vw, 38px);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-inner {
+    position: relative;
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .mono {
+    font-family: var(--font-mono);
+  }
+  .index {
+    font-size: 13px;
+    color: var(--accent-text);
+  }
+  .icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border-strong);
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+    color: var(--text);
+  }
+  h3 {
+    margin: 0 0 14px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 23px;
+    letter-spacing: -0.01em;
+  }
+  p {
+    margin: 0 0 24px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--dim);
+    text-wrap: pretty;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--accent-text);
+    font-weight: 600;
+    font-size: 14px;
+  }
+</style>

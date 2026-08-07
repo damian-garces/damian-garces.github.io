@@ -1,0 +1,23 @@
+{
+  "heading": {
+    "eyebrow": "Services",
+    "title": "What I can build for you.",
+    "note": "// 02 offerings"
+  },
+  "items": [
+    {
+      "n": "01",
+      "icon": "{ }",
+      "title": "Backend Engineering",
+      "description": "Robust, scalable and secure backend solutions — efficient architectures, well-designed APIs and seamless system integrations for complex, high-load applications.",
+      "cta": "Order service"
+    },
+    {
+      "n": "02",
+      "icon": "</>",
+      "title": "Full Stack Development",
+      "description": "Responsive, performant interfaces in React and Vue, wired end-to-end to .NET services — quality user experiences that adapt to the needs of each project.",
+      "cta": "Order service"
+    }
+  ]
+}
