@@ -1,5 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "zod";
 
 /**
  * Shared shape for a section's eyebrow/title/note header block.
@@ -24,7 +25,7 @@ const statItem = z.object({
 
 const socialLink = z.object({
   label: z.string(),
-  href: z.string().url(),
+  href: z.url(),
 });
 
 /** One entry per locale (id: "en" | "es"), loaded from src/content/<name>/*.json */
@@ -124,7 +125,7 @@ const education = defineCollection({
           year: z.string(),
           title: z.string(),
           place: z.string(),
-          certificateUrl: z.string().url().optional(),
+          certificateUrl: z.url().optional(),
         }),
       )
       .min(1),
