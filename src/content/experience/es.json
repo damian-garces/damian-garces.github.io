@@ -1,0 +1,53 @@
+{
+  "heading": {
+    "eyebrow": "Experiencia",
+    "title": "14 años entregando.",
+    "note": "// 4 empresas"
+  },
+  "items": [
+    {
+      "n": "01",
+      "company": "Identidad Technologies",
+      "period": "2017 — Presente",
+      "role": "Senior Developer · Líder de equipo",
+      "bullets": [
+        "Líder técnico que guía las buenas prácticas para la calidad y mantenibilidad del código.",
+        "Impulso las decisiones de arquitectura y diseño de nuevas soluciones alineadas al negocio.",
+        "Formo ingenieros, dirijo revisiones de código y fomento frameworks modernos."
+      ]
+    },
+    {
+      "n": "02",
+      "company": "Periferia IT",
+      "period": "2014 — 2017",
+      "role": "Analista Desarrollador Senior",
+      "bullets": [
+        "Construí y mantuve aplicaciones empresariales para diversas industrias.",
+        "Lideré el desarrollo full-stack en .NET para soluciones web.",
+        "Entregué CreditoWeb para Banco Falabella — gestión eficiente de tarjetas de crédito."
+      ]
+    },
+    {
+      "n": "03",
+      "company": "Everis Colombia",
+      "period": "2011 — 2014",
+      "role": "Analista Desarrollador Senior",
+      "bullets": [
+        "Analicé y diseñé módulos técnicos y funcionales.",
+        "Responsable de pruebas unitarias, documentación y estimación.",
+        "Aseguré el cumplimiento de CMMI Nivel 3 en el equipo."
+      ]
+    },
+    {
+      "n": "04",
+      "company": "ASO Ltda",
+      "period": "2010 — 2011",
+      "role": "Analista Desarrollador Junior",
+      "bullets": [
+        "Diseñé bases de datos para un sistema de indexación de documentos referenciales.",
+        "Escribí scripts de SQL Server para automatizar archivos planos de órdenes de compra.",
+        "Construí herramientas en C# para replicar productos entre bases de datos."
+      ]
+    }
+  ]
+}

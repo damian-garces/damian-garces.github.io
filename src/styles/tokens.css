@@ -1,0 +1,49 @@
+/**
+ * Design tokens transcribed from the Claude Design source
+ * (Portfolio.dc.html -> renderVals()). Dark theme only, by design: the
+ * whole visual identity (atmo blobs, wave gradient, IDE-style code editor)
+ * is art-directed for dark mode, so no theme toggle/light variant is
+ * offered. Accent is fixed to "cyan" (the design's own default state; it
+ * exposes no accent switcher in its UI, so none is added here).
+ */
+
+:root {
+  --bg: #0a0a0b;
+  --bg-el: #0e0e10;
+  --surface: rgba(30, 32, 40, 0.55);
+  --surface-2: rgba(34, 36, 45, 0.62);
+  --field-bg: rgba(14, 15, 20, 0.55);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --text: #f5f5f7;
+  --dim: #d3d3d9;
+  --faint: #a0a0aa;
+  --dot: rgba(255, 255, 255, 0.07);
+  --nav-bg: rgba(10, 10, 11, 0.62);
+
+  --accent: #2bd4de;
+  --accent-text: #3ddce6;
+  --accent-contrast: #04181a;
+  --accent-glow: rgba(43, 212, 222, 0.16);
+
+  --wave-opacity: 0.55;
+  --wave-c1: #7b3ff2;
+  --wave-c2: #3d6bff;
+  --wave-c3: #35d8f2;
+  --wave-c4: #8b4cf2;
+
+  --atmo-opacity: 0.7;
+
+  /* The hero code-editor chrome always mimics a dark IDE. */
+  --editor-bg: rgba(15, 17, 22, 0.78);
+  --editor-border: rgba(255, 255, 255, 0.1);
+  --editor-dim: rgba(255, 255, 255, 0.45);
+  --editor-linenum: rgba(255, 255, 255, 0.26);
+  --editor-console: rgba(255, 255, 255, 0.55);
+  --editor-text: #edeff2;
+  --editor-comment: #7c93a0;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}

@@ -1,0 +1,74 @@
+{
+  "heading": {
+    "eyebrow": "Skills",
+    "title": "The stack I reach for.",
+    "note": "// no progress bars"
+  },
+  "categories": [
+    {
+      "n": "01",
+      "name": "Languages",
+      "tags": [
+        { "name": "C#", "primary": true },
+        { "name": "JavaScript", "primary": false },
+        { "name": "Python", "primary": false },
+        { "name": "SQL", "primary": false }
+      ]
+    },
+    {
+      "n": "02",
+      "name": "Backend & .NET",
+      "tags": [
+        { "name": ".NET Core", "primary": true },
+        { "name": "ASP.NET Core", "primary": false },
+        { "name": "Entity Framework", "primary": false },
+        { "name": "Dapper", "primary": false },
+        { "name": "Node.js", "primary": false }
+      ]
+    },
+    {
+      "n": "03",
+      "name": "Cloud & Azure",
+      "tags": [
+        { "name": "Microsoft Azure", "primary": true },
+        { "name": "Azure Functions", "primary": false },
+        { "name": "App Services", "primary": false },
+        { "name": "Azure Queue", "primary": false },
+        { "name": "Azure OpenAI", "primary": false },
+        { "name": "DevOps", "primary": false }
+      ]
+    },
+    {
+      "n": "04",
+      "name": "Architecture",
+      "tags": [
+        { "name": "Microservices", "primary": true },
+        { "name": "Clean Architecture", "primary": true },
+        { "name": "DDD", "primary": false },
+        { "name": "CQRS", "primary": false },
+        { "name": "Design Patterns", "primary": false }
+      ]
+    },
+    {
+      "n": "05",
+      "name": "Frontend",
+      "tags": [
+        { "name": "React", "primary": false },
+        { "name": "Vue", "primary": false },
+        { "name": "HTML", "primary": false },
+        { "name": "CSS", "primary": false }
+      ]
+    },
+    {
+      "n": "06",
+      "name": "Data",
+      "tags": [
+        { "name": "SQL Server", "primary": false },
+        { "name": "Oracle", "primary": false },
+        { "name": "MySQL", "primary": false },
+        { "name": "MongoDB", "primary": false },
+        { "name": "Power BI", "primary": false }
+      ]
+    }
+  ]
+}

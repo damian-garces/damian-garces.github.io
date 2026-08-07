@@ -1,0 +1,199 @@
+---
+import LangSwitch from "./LangSwitch.astro";
+import type { Locale } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface NavItem {
+  id: string;
+  n: string;
+  label: string;
+}
+
+interface Props {
+  locale: Locale;
+  role: string;
+  navItems: NavItem[];
+}
+
+const { locale, role, navItems } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<nav data-nav="1" class="nav">
+  <div class="nav-row">
+    <a href="#top" class="brand">
+      <span class="brand-mark">DG</span>
+      <span class="brand-text">
+        <span class="brand-name">Damián Garcés</span>
+        <span class="brand-role">{role}</span>
+      </span>
+    </a>
+
+    <div data-section-nav="1" class="section-nav">
+      {
+        navItems.map((item) => (
+          <a href={`#${item.id}`}>
+            <span class="nav-index">{item.n}</span>
+            {item.label}
+            <span class="dg-nav-underline" />
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="nav-actions">
+      <LangSwitch locale={locale} />
+      <button data-mobile-toggle="1" class="mobile-toggle" aria-label={t("nav.menu")} aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <div data-mobile-menu="1" class="mobile-menu" hidden>
+    {
+      navItems.map((item) => (
+        <a href={`#${item.id}`}>
+          <span class="nav-index">{item.n}</span>
+          {item.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-row {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 14px clamp(18px, 5vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid var(--accent);
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--accent-text);
+    letter-spacing: 0.02em;
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.1;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .brand-role {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .section-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 26px);
+  }
+  .section-nav a {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--dim);
+    font-size: 13.5px;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+  }
+  .nav-index {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--accent-text);
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .mobile-toggle {
+    display: none;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .burger-line {
+    display: block;
+    width: 16px;
+    height: 1.5px;
+    background: var(--text);
+  }
+  /* :not([hidden]) matters here: the `hidden` attribute only wins over an
+     unconditional `display: flex` when specificity says so, and an author
+     class rule otherwise beats the UA's `[hidden] { display: none }` —
+     which is exactly why this panel was rendering open at every width. */
+  .mobile-menu:not([hidden]) {
+    border-top: 1px solid var(--border);
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    padding: 10px clamp(18px, 5vw, 48px) 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  @media (max-width: 899px) {
+    .section-nav {
+      display: none !important;
+    }
+    .mobile-toggle {
+      display: grid !important;
+    }
+  }
+</style>

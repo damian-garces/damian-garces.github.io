@@ -1,0 +1,71 @@
+---
+/**
+ * Page-level ambient color wash behind all content — three large blurred,
+ * independently drifting blobs, visible only in dark theme (opacity comes
+ * from --atmo-opacity, which the light theme sets to 0). Ported from the
+ * Claude Design source's atmo layer.
+ */
+---
+
+<div class="atmo" aria-hidden="true">
+  <div class="atmo-blob atmo-blob-a"></div>
+  <div class="atmo-blob atmo-blob-b"></div>
+  <div class="atmo-blob atmo-blob-c"></div>
+</div>
+
+<style>
+  .atmo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: var(--atmo-opacity);
+    filter: saturate(1.1);
+    transition: opacity 1.2s ease;
+  }
+  .atmo-blob {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+  }
+  .atmo-blob-a {
+    width: 70vw;
+    height: 70vw;
+    max-width: 900px;
+    max-height: 900px;
+    left: -14%;
+    top: -16%;
+    filter: blur(120px);
+    background: radial-gradient(circle, var(--wave-c3), transparent 65%);
+    animation: dg-atmoA 34s ease-in-out infinite;
+  }
+  .atmo-blob-b {
+    width: 60vw;
+    height: 60vw;
+    max-width: 760px;
+    max-height: 760px;
+    right: -12%;
+    top: 6%;
+    filter: blur(130px);
+    background: radial-gradient(circle, var(--wave-c2), transparent 68%);
+    animation: dg-atmoB 40s ease-in-out infinite;
+  }
+  .atmo-blob-c {
+    width: 55vw;
+    height: 55vw;
+    max-width: 700px;
+    max-height: 700px;
+    left: 16%;
+    bottom: -22%;
+    opacity: 0.7;
+    filter: blur(120px);
+    background: radial-gradient(circle, var(--wave-c3), transparent 70%);
+    animation: dg-atmoC 46s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .atmo-blob {
+      animation: none !important;
+    }
+  }
+</style>

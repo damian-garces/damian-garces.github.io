@@ -1,0 +1,24 @@
+{
+  "heading": {
+    "eyebrow": "Contacto",
+    "title": "Construyamos algo.",
+    "note": "// respuesta < 24h"
+  },
+  "form": {
+    "successTitle": "Mensaje enviado.",
+    "successSubtitle": "Gracias — te contactaré en menos de 24 horas.",
+    "nameLabel": "Nombre",
+    "emailLabel": "Correo",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "Proyecto, rol o colaboración",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Cuéntame qué estás construyendo...",
+    "sendLabel": "Enviar mensaje"
+  },
+  "info": [
+    { "key": "Ubicación", "value": "Chía, Colombia" },
+    { "key": "Disponibilidad", "value": "Abierto a nuevas oportunidades" },
+    { "key": "Tiempo de respuesta", "value": "Menos de 24 horas" }
+  ],
+  "findMeLabel": "Encuéntrame"
+}

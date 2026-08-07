@@ -1,0 +1,36 @@
+{
+  "heading": {
+    "eyebrow": "Education",
+    "title": "Always learning.",
+    "note": "// certified"
+  },
+  "items": [
+    {
+      "n": "01",
+      "year": "2024",
+      "title": "Clean Architecture & DDD in ASP.NET Core 8",
+      "place": "Udemy",
+      "certificateUrl": "https://www.udemy.com/certificate/UC-6c5e276a-5181-4408-bcda-1d780dd1a0c9/"
+    },
+    {
+      "n": "02",
+      "year": "2024",
+      "title": "AI Solutions Developer — Azure OpenAI",
+      "place": "Universidad de los Andes",
+      "certificateUrl": "https://wallet.xertify.co/certificates/E260A76DC002"
+    },
+    {
+      "n": "03",
+      "year": "2021",
+      "title": "Concurrency in C# — Async & Parallelism",
+      "place": "Udemy",
+      "certificateUrl": "https://www.udemy.com/certificate/UC-9f00e348-e050-4d26-8b4d-e6e6885f34f1/"
+    },
+    {
+      "n": "04",
+      "year": "2003–2010",
+      "title": "Bachelor's Degree, Systems Engineering",
+      "place": "Universidad Industrial de Santander (UIS)"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface ExperienceItem {
+  n: string;
+  company: string;
+  period: string;
+  role: string;
+  bullets: string[];
+}
+interface Heading {
+  eyebrow: string;
+  title: string;
+  note: string;
+}
+
+interface Props {
+  n: string;
+  heading: Heading;
+  items: ExperienceItem[];
+}
+
+const { n, heading, items } = Astro.props;
+---
+
+<Section id="work">
+  <SectionHeading n={n} eyebrow={heading.eyebrow} title={heading.title} note={heading.note} />
+  <div class="cards">
+    {
+      items.map((item) => (
+        <div class="card" data-reveal="1" data-glow="1">
+          <div data-glow-layer="1" />
+          <div class="card-inner">
+            <div class="card-left">
+              <div class="card-top">
+                <span class="index mono">{item.n}</span>
+                <span class="period mono">{item.period}</span>
+              </div>
+              <h3>{item.company}</h3>
+              <div class="role mono">{item.role}</div>
+            </div>
+            <ul class="bullets">
+              {item.bullets.map((bullet) => (
+                <li>
+                  <span class="dash mono">—</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: clamp(22px, 3vw, 34px);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-inner {
+    position: relative;
+    display: flex;
+    gap: clamp(18px, 4vw, 48px);
+    flex-wrap: wrap;
+  }
+  .card-left {
+    flex: 1 1 240px;
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .mono {
+    font-family: var(--font-mono);
+  }
+  .index {
+    font-size: 13px;
+    color: var(--accent-text);
+  }
+  .period {
+    font-size: 11.5px;
+    color: var(--faint);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 9px;
+  }
+  h3 {
+    margin: 0 0 4px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .role {
+    font-size: 14px;
+    color: var(--accent-text);
+  }
+  .bullets {
+    flex: 1 1 360px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .bullets li {
+    display: flex;
+    gap: 11px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--dim);
+    text-wrap: pretty;
+  }
+  .dash {
+    flex: 0 0 auto;
+    color: var(--accent-text);
+    margin-top: 1px;
+  }
+</style>

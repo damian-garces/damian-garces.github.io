@@ -1,0 +1,157 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import ContactForm from "./islands/ContactForm.tsx";
+import { useTranslations } from "../i18n/utils";
+import type { Locale } from "../i18n/ui";
+
+interface Heading {
+  eyebrow: string;
+  title: string;
+  note: string;
+}
+interface InfoItem {
+  key: string;
+  value: string;
+}
+interface SocialLink {
+  label: string;
+  href: string;
+}
+interface FormLabels {
+  successTitle: string;
+  successSubtitle: string;
+  nameLabel: string;
+  emailLabel: string;
+  subjectLabel: string;
+  subjectPlaceholder: string;
+  messageLabel: string;
+  messagePlaceholder: string;
+  sendLabel: string;
+}
+
+interface Props {
+  locale: Locale;
+  n: string;
+  heading: Heading;
+  form: FormLabels;
+  info: InfoItem[];
+  findMeLabel: string;
+  socials: SocialLink[];
+}
+
+const { locale, n, heading, form, info, findMeLabel, socials } = Astro.props;
+const t = useTranslations(locale);
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "";
+if (!accessKey && import.meta.env.PROD) {
+  console.warn("[Contact] PUBLIC_WEB3FORMS_KEY is not set — the contact form will not be able to send messages.");
+}
+---
+
+<Section id="contact">
+  <SectionHeading n={n} eyebrow={heading.eyebrow} title={heading.title} note={heading.note} />
+  <div class="grid">
+    <div class="form-card" data-reveal="1">
+      <ContactForm
+        client:visible
+        accessKey={accessKey}
+        labels={{
+          ...form,
+          errorEmail: t("contact.errorEmail"),
+          errorGeneric: t("contact.errorGeneric"),
+        }}
+      />
+    </div>
+    <div class="side-col" data-reveal="1" data-delay="80">
+      {
+        info.map((item) => (
+          <div class="info-card">
+            <div class="info-key">{item.key}</div>
+            <div class="info-value">{item.value}</div>
+          </div>
+        ))
+      }
+      <div class="find-me-card">
+        <div class="find-me-label">{findMeLabel}</div>
+        {
+          socials.map((social) => (
+            <a href={social.href} target="_blank" rel="noopener noreferrer" class="social-link">
+              {social.label} <span class="arrow">↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .form-card {
+    flex: 1 1 440px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: clamp(24px, 3vw, 36px);
+  }
+  .side-col {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .info-key {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 8px;
+  }
+  .info-value {
+    font-size: 15px;
+    color: var(--text);
+  }
+  .find-me-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 11px;
+  }
+  .find-me-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    padding: 4px 0;
+  }
+  .arrow {
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+  }
+</style>

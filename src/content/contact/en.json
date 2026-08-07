@@ -1,0 +1,24 @@
+{
+  "heading": {
+    "eyebrow": "Contact",
+    "title": "Let's build something.",
+    "note": "// response < 24h"
+  },
+  "form": {
+    "successTitle": "Message sent.",
+    "successSubtitle": "Thanks — I'll be in touch within 24 hours.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Project, role or collaboration",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell me what you're building...",
+    "sendLabel": "Send message"
+  },
+  "info": [
+    { "key": "Location", "value": "Chía, Colombia" },
+    { "key": "Availability", "value": "Open to new opportunities" },
+    { "key": "Response time", "value": "Within 24 hours" }
+  ],
+  "findMeLabel": "Find me"
+}

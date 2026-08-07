@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AtmoBackground from "./AtmoBackground.astro";
+import Nav from "./Nav.astro";
+import Hero from "./Hero.astro";
+import Marquee from "./Marquee.astro";
+import About from "./About.astro";
+import Services from "./Services.astro";
+import Skills from "./Skills.astro";
+import Education from "./Education.astro";
+import Experience from "./Experience.astro";
+import Contact from "./Contact.astro";
+import Footer from "./Footer.astro";
+import { sectionOrder } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+import type { Locale } from "../i18n/ui";
+import type { loadPageData } from "../lib/page";
+
+interface Props {
+  locale: Locale;
+  data: Awaited<ReturnType<typeof loadPageData>>;
+}
+
+const { locale, data } = Astro.props;
+const { profile, services, skills, softSkills, languages, education, experience, contact, navItems } = data;
+const t = useTranslations(locale);
+
+const nOf = (id: (typeof sectionOrder)[number]["id"]) => sectionOrder.find((s) => s.id === id)!.n;
+
+// Single source of truth for the tech marquee: every skill tag, not a
+// separately maintained list that could drift from the Skills section.
+const marqueeItems = skills.categories.flatMap((category) => category.tags.map((tag) => tag.name));
+---
+
+<BaseLayout locale={locale} title={`${profile.name} — ${profile.role}`} description={profile.tagline}>
+  <div class="mil-frame-wrapper">
+    <AtmoBackground />
+    <Nav locale={locale} role={profile.role} navItems={navItems} />
+    <Hero locale={locale} name={profile.name} role={profile.role} tagline={profile.tagline} heroMeta={profile.heroMeta} cvUrl={profile.cvUrl} />
+    <Marquee items={marqueeItems} />
+    <main>
+      <About n={nOf("about")} heading={profile.about.heading} bio={profile.about.bio} stats={profile.about.stats} name={profile.name} />
+      <Services n={nOf("services")} heading={services.heading} items={services.items} />
+      <Skills
+        n={nOf("skills")}
+        heading={skills.heading}
+        categories={skills.categories}
+        softTitle={softSkills.heading.title}
+        softItems={softSkills.items}
+        languages={languages.items}
+      />
+      <Education n={nOf("education")} heading={education.heading} items={education.items} certificateLabel={t("education.certificate")} />
+      <Experience n={nOf("work")} heading={experience.heading} items={experience.items} />
+      <Contact
+        locale={locale}
+        n={nOf("contact")}
+        heading={contact.heading}
+        form={contact.form}
+        info={contact.info}
+        findMeLabel={contact.findMeLabel}
+        socials={profile.socials}
+      />
+    </main>
+    <Footer locale={locale} />
+  </div>
+</BaseLayout>
