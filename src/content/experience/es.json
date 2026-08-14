@@ -7,46 +7,57 @@
   "items": [
     {
       "n": "01",
-      "company": "Identidad Technologies",
-      "period": "2017 — Presente",
-      "role": "Senior Developer · Líder de equipo",
+      "company": "Tiron Agency",
+      "period": "Ago 2025 — Sep 2025",
+      "role": "Full-Stack Developer",
       "bullets": [
-        "Líder técnico que guía las buenas prácticas para la calidad y mantenibilidad del código.",
-        "Impulso las decisiones de arquitectura y diseño de nuevas soluciones alineadas al negocio.",
-        "Formo ingenieros, dirijo revisiones de código y fomento frameworks modernos."
+        "Migré una aplicación legacy en .NET 4.7 a .NET 8, mejorando el rendimiento y la mantenibilidad.",
+        "Construí componentes reutilizables en Next.js y TailwindCSS (Author Pages, BlogCard) para una arquitectura front-end escalable.",
+        "Integré Prismic CMS con enrutamiento dinámico y traduje prototipos de Figma a layouts responsivos."
       ]
     },
     {
       "n": "02",
-      "company": "Periferia IT",
-      "period": "2014 — 2017",
-      "role": "Analista Desarrollador Senior",
+      "company": "Identidad Technologies",
+      "period": "Feb 2025 — Mar 2025",
+      "role": "Consultor Backend Developer",
       "bullets": [
-        "Construí y mantuve aplicaciones empresariales para diversas industrias.",
-        "Lideré el desarrollo full-stack en .NET para soluciones web.",
-        "Entregué CreditoWeb para Banco Falabella — gestión eficiente de tarjetas de crédito."
+        "Diseñé un sistema de entrega de SMS de alto throughput sobre Clean Architecture usando RabbitMQ, Azure Queue Triggers y MongoDB.",
+        "Construí un mecanismo de rate-limiting por empresa con Redis para controlar el TPS y evitar sobrecarga a gran escala.",
+        "Estructuré el proyecto en capas Core, Infrastructure y Presentation con servicios testeados e inyección de dependencias."
       ]
     },
     {
       "n": "03",
-      "company": "Everis Colombia",
-      "period": "2011 — 2014",
-      "role": "Analista Desarrollador Senior",
+      "company": "Identidad Technologies",
+      "period": "Oct 2017 — Ene 2025",
+      "role": "Senior Developer · Líder de equipo",
       "bullets": [
-        "Analicé y diseñé módulos técnicos y funcionales.",
-        "Responsable de pruebas unitarias, documentación y estimación.",
-        "Aseguré el cumplimiento de CMMI Nivel 3 en el equipo."
+        "Arquitecturé Apollo, una plataforma empresarial escalable, reduciendo los costos operativos en un 40%.",
+        "Mejoré la eficiencia del backend en un 70% y lideré la migración de monolitos a microservicios, aumentando el tráfico de clientes en un 60%.",
+        "Implementé CI/CD con Azure DevOps y Docker, reduciendo a la mitad el tiempo de despliegue, liderando y formando un equipo de 8 desarrolladores."
       ]
     },
     {
       "n": "04",
-      "company": "ASO Ltda",
-      "period": "2010 — 2011",
-      "role": "Analista Desarrollador Junior",
+      "company": "Periferia IT",
+      "period": "May 2014 — Sep 2017",
+      "role": "Senior Developer",
       "bullets": [
-        "Diseñé bases de datos para un sistema de indexación de documentos referenciales.",
-        "Escribí scripts de SQL Server para automatizar archivos planos de órdenes de compra.",
-        "Construí herramientas en C# para replicar productos entre bases de datos."
+        "Construí sistemas backend para Banco Falabella para optimizar transacciones financieras y mejorar la confiabilidad.",
+        "Integré APIs de terceros para automatizar operaciones, reduciendo la latencia y el trabajo manual.",
+        "Diseñé aplicaciones seguras en .NET siguiendo las mejores prácticas del sector bancario."
+      ]
+    },
+    {
+      "n": "05",
+      "company": "Everis Colombia",
+      "period": "Mar 2011 — May 2014",
+      "role": "Analista Desarrollador Senior",
+      "bullets": [
+        "Desarrollé servicios backend para Movistar Colombia, mejorando el soporte en telecomunicaciones, internet y TV.",
+        "Fui promovido de Junior a Analista Desarrollador Senior en menos de un año.",
+        "Entregué servicios conformes a CMMI Nivel 3, aumentando la estabilidad y mantenibilidad del código."
       ]
     }
   ]

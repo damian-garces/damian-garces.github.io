@@ -8,27 +8,45 @@
     {
       "n": "01",
       "year": "2024",
-      "title": "Clean Architecture & DDD en ASP.NET Core 8",
+      "title": "Clean Architecture y Domain-Driven Design",
       "place": "Udemy",
       "certificateUrl": "https://www.udemy.com/certificate/UC-6c5e276a-5181-4408-bcda-1d780dd1a0c9/"
     },
     {
       "n": "02",
       "year": "2024",
-      "title": "Desarrollador de Soluciones de IA — Azure OpenAI",
+      "title": "Desarrollador de Soluciones de IA",
       "place": "Universidad de los Andes",
       "certificateUrl": "https://wallet.xertify.co/certificates/E260A76DC002"
     },
     {
       "n": "03",
+      "year": "2022",
+      "title": "Desarrollo Profesional en Python",
+      "place": "Platzi"
+    },
+    {
+      "n": "04",
+      "year": "2022",
+      "title": "Asincronismo con JavaScript",
+      "place": "Platzi"
+    },
+    {
+      "n": "05",
       "year": "2021",
       "title": "Concurrencia en C# — Async y Paralelismo",
       "place": "Udemy",
       "certificateUrl": "https://www.udemy.com/certificate/UC-9f00e348-e050-4d26-8b4d-e6e6885f34f1/"
     },
     {
-      "n": "04",
-      "year": "2003–2010",
+      "n": "06",
+      "year": "2020",
+      "title": "Vue Avanzado",
+      "place": "Platzi"
+    },
+    {
+      "n": "07",
+      "year": "2010",
       "title": "Pregrado, Ingeniería de Sistemas",
       "place": "Universidad Industrial de Santander (UIS)"
     }

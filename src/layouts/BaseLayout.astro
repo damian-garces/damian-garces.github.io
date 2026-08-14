@@ -24,7 +24,7 @@ const canonicalUrl = new URL(localizedPath(locale, path), Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     {
       locales.map((loc) => (

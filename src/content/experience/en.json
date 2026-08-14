@@ -7,46 +7,57 @@
   "items": [
     {
       "n": "01",
-      "company": "Identidad Technologies",
-      "period": "2017 — Present",
-      "role": "Senior Developer · Team Lead",
+      "company": "Tiron Agency",
+      "period": "Aug 2025 — Sep 2025",
+      "role": "Full-Stack Developer",
       "bullets": [
-        "Technical lead guiding best practices for code quality and maintainability.",
-        "Drive architecture and design decisions for new solutions aligned to business goals.",
-        "Mentor engineers, run code reviews and champion modern frameworks."
+        "Migrated a legacy .NET 4.7 application to .NET 8, improving performance and maintainability.",
+        "Built reusable Next.js and TailwindCSS components (Author Pages, BlogCard) for a scalable front-end architecture.",
+        "Integrated Prismic CMS with dynamic routing and translated Figma prototypes into responsive layouts."
       ]
     },
     {
       "n": "02",
-      "company": "Periferia IT",
-      "period": "2014 — 2017",
-      "role": "Senior Developer Analyst",
+      "company": "Identidad Technologies",
+      "period": "Feb 2025 — Mar 2025",
+      "role": "Consultant Backend Developer",
       "bullets": [
-        "Built and maintained enterprise applications across industries.",
-        "Led full-stack .NET development for web-based solutions.",
-        "Delivered CreditoWeb for Banco Falabella — efficient credit-card management."
+        "Designed a high-throughput SMS delivery system on Clean Architecture using RabbitMQ, Azure Queue Triggers and MongoDB.",
+        "Built a per-company rate-limiting mechanism with Redis to control TPS and prevent overload at scale.",
+        "Structured the project into Core, Infrastructure and Presentation layers with unit-tested, DI-based services."
       ]
     },
     {
       "n": "03",
-      "company": "Everis Colombia",
-      "period": "2011 — 2014",
-      "role": "Senior Developer Analyst",
+      "company": "Identidad Technologies",
+      "period": "Oct 2017 — Jan 2025",
+      "role": "Senior Developer · Team Lead",
       "bullets": [
-        "Analyzed and designed technical and functional modules.",
-        "Owned unit testing, documentation and effort estimation.",
-        "Ensured CMMI Level 3 compliance across the team."
+        "Architected Apollo, a scalable enterprise platform, cutting operational costs by 40%.",
+        "Enhanced backend efficiency by 70% and led the migration from monoliths to microservices, growing client traffic by 60%.",
+        "Implemented CI/CD with Azure DevOps and Docker, halving deployment time while leading and mentoring a team of 8 developers."
       ]
     },
     {
       "n": "04",
-      "company": "ASO Ltda",
-      "period": "2010 — 2011",
-      "role": "Junior Developer Analyst",
+      "company": "Periferia IT",
+      "period": "May 2014 — Sep 2017",
+      "role": "Senior Software Developer",
       "bullets": [
-        "Designed databases for a referential-document indexing system.",
-        "Wrote SQL Server scripts automating flat-file purchase orders.",
-        "Built C# tooling to replicate products across databases."
+        "Built backend systems for Banco Falabella to streamline financial transactions and improve reliability.",
+        "Integrated third-party APIs to automate operations, reducing latency and manual workload.",
+        "Designed secure .NET applications following banking-industry best practices."
+      ]
+    },
+    {
+      "n": "05",
+      "company": "Everis Colombia",
+      "period": "Mar 2011 — May 2014",
+      "role": "Senior Developer Analyst",
+      "bullets": [
+        "Developed backend services for Movistar Colombia, improving support across telecom, internet and TV.",
+        "Promoted from Junior to Senior Developer Analyst in under a year.",
+        "Delivered CMMI Level 3–compliant services, increasing code stability and maintainability."
       ]
     }
   ]
